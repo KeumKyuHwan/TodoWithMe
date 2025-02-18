@@ -1,19 +1,16 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
+import HomeScreen from './src/screens/HomeScreen'; // HomeScreen 경로에 맞게 수정
 
-const App = () => {
-  return (
-    <View style={styles.container}>
-      <Text>Hello, React Native!</Text>
-    </View>
-  );
-};
+const App = () => (
+  <SafeAreaView style={styles.container}>
+    <HomeScreen />
+  </SafeAreaView>
+);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
 
