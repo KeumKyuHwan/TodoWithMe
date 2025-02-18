@@ -72,3 +72,17 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Node modules
+node_modules/
+
+# React Native build directories
+android/build/
+ios/Pods/
+
+# macOS
+.idea/
+.vscode/
+
+# macOS system files
+.DS_Store  
