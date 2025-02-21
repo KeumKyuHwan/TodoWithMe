@@ -1,6 +1,6 @@
 // CustomDropdown.js
 import React, { useState, useRef } from 'react';
-import { FlatList, Text, TouchableOpacity, View, TouchableWithoutFeedback } from 'react-native';
+import { FlatList, Text, TouchableOpacity, View} from 'react-native';
 import styled from 'styled-components/native';
 
 const Dropdown = ({ options, onSelect, placeholder = '선택하세요' }) => {
@@ -17,7 +17,6 @@ const Dropdown = ({ options, onSelect, placeholder = '선택하세요' }) => {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={() => setIsVisible(false)}>
       <DropdownContainer ref={dropdownRef}>
         <DropdownHeader onPress={() => setIsVisible(!isVisible)}>
           <DropdownHeaderText>
@@ -40,7 +39,6 @@ const Dropdown = ({ options, onSelect, placeholder = '선택하세요' }) => {
           </DropdownListContainer>
         )}
       </DropdownContainer>
-    </TouchableWithoutFeedback>
   );
 };
 
