@@ -34,7 +34,7 @@ const SwitchButton = styled.TouchableOpacity`
   align-items: center;
   justify-content: space-between;
   padding: ${screenWidth * 0.01}px ${screenWidth * 0.03}px;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 `;
 
 const Circle = styled.View`

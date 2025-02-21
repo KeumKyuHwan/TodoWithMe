@@ -1,7 +1,8 @@
 // CustomDropdown.js
 import React, { useState, useRef } from 'react';
-import { FlatList, Text, TouchableOpacity, View} from 'react-native';
+import { FlatList} from 'react-native';
 import styled from 'styled-components/native';
+import TextStyle from "./TextStyle";
 
 const Dropdown = ({ options, onSelect, placeholder = '선택하세요' }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -19,9 +20,7 @@ const Dropdown = ({ options, onSelect, placeholder = '선택하세요' }) => {
   return (
       <DropdownContainer ref={dropdownRef}>
         <DropdownHeader onPress={() => setIsVisible(!isVisible)}>
-          <DropdownHeaderText>
-            {selectedLabel || placeholder}
-          </DropdownHeaderText>
+          <TextStyle color="black" text={selectedLabel || placeholder} size="xsmall"/>
           <Triangle isVisible={isVisible} />
         </DropdownHeader>
 
@@ -32,7 +31,7 @@ const Dropdown = ({ options, onSelect, placeholder = '선택하세요' }) => {
               keyExtractor={(item) => item.value}
               renderItem={({ item }) => (
                 <DropdownItem onPress={() => handleSelect(item)}>
-                  <DropdownItemText>{item.label}</DropdownItemText>
+                  <TextStyle text={item.label} size="xsmall"/>
                 </DropdownItem>
               )}
             />
@@ -49,8 +48,9 @@ const DropdownContainer = styled.View`
 `;
 
 const DropdownHeader = styled.TouchableOpacity`
-  padding: 10px;
-  padding-right: 30px;
+    width :100%;
+  padding: 3%;
+  padding-right: 10%;
   border-bottom-width: 1px;
   border-color: #ccc;
   border-radius: 5px;
@@ -75,7 +75,7 @@ const Triangle = styled.View`
   border-left-color: transparent;
   border-right-color: transparent;
   border-top-color: #999;
-  margin-left: 10px;
+  margin-left: 5%;
 
   /* 드롭다운 열림/닫힘에 따라 회전 */
   transform: ${({ isVisible }) => (isVisible ? 'rotate(180deg)' : 'rotate(0deg)')};
@@ -93,7 +93,7 @@ const DropdownListContainer = styled.View`
   border-color: #ccc;
   border-top-width: 0;
   border-radius: 5px;
-  max-height: 200px;
+  max-height: 1000%;
 `;
 
 const DropdownList = styled(FlatList)`
@@ -101,14 +101,11 @@ const DropdownList = styled(FlatList)`
 `;
 
 const DropdownItem = styled.TouchableOpacity`
-  padding: 10px;
+  padding: 3%;
   border-bottom-width: 1px;
   border-bottom-color: #f0f0f0;
 `;
 
-const DropdownItemText = styled.Text`
-  font-size: 16px;
-  color: #000;
-`;
+
 
 export default Dropdown;
