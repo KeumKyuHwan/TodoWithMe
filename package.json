@@ -13,10 +13,11 @@
     "@react-native-async-storage/async-storage": "^2.1.1",
     "@react-navigation/native": "^7.0.14",
     "react": "18.3.1",
+    "react-dom": "^18.3.1",
     "react-native": "0.77.1",
     "react-native-safe-area-context": "^5.2.0",
     "react-native-screens": "^4.6.0",
-    "react-native-styled-components": "^2.1.0"
+    "styled-components": "^6.1.15"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
