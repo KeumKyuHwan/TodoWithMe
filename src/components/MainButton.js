@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
-const Button = () => (
+const MainButton = () => (
   <View style={styles.container}>
-    <Button>컴포넌트 버튼</Button>
+    <Button title="컴포넌트 버튼" onPress={() => alert('버튼 클릭!')} />
   </View>
 );
 
@@ -15,4 +15,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Button;
+export default MainButton;
