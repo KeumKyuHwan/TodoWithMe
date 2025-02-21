@@ -1,12 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
-import { Text, PixelRatio } from "react-native";
-
-const remToPx = (rem) => {
-    const baseFontSize = 16;
-    const scale = PixelRatio.get();
-    return rem * baseFontSize * scale;
-}
+import { Text } from "react-native";
+import { remToPx } from "../utils/Converter";
 
 const Font = styled(Text)`
 color : ${(props) => {
@@ -58,7 +53,7 @@ font-weight : ${(props) => {
 
 function TextStyle ({text, color, size, weight}) {
     return (
-        <Font 
+    <Font
     color={color}
     size={size}
     weight={weight}
