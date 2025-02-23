@@ -36,14 +36,17 @@ const MainLayout = () => {
   // content 영역이 bottomMenu와 겹치지 않도록 marginBottom 적용
   const contentMarginBottom = bottomMenuHeight;
 
+  // initialParams로 MainLayout에서 하위 컴포넌트로 정보 전달 가능
+  const initialParams = {width, height, isTabletDevice}
+
   return (
     <View style={styles.container}>
       <View style={[styles.content, { marginBottom: contentMarginBottom }]}>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen name="HomeScreen" component={HomeScreen} initialParams={initialParams}/>
           <Stack.Screen name="CalendarScreen" component={CalendarScreen} />
           <Stack.Screen name="WorkplaceScreen" component={WorkplaceScreen} />
-          <Stack.Screen name="DiaryScreen" component={DiaryScreen} />
+          <Stack.Screen name="DiaryScreen" component={DiaryScreen} initialParams={initialParams}/>
         </Stack.Navigator>
       </View>
       <View style={[styles.bottomMenuContainer, { height: bottomMenuHeight }]}>
