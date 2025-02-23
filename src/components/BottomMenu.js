@@ -1,15 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { TouchableOpacity, useWindowDimensions } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import TextStyle from "./TextStyle";
-import {isTablet} from "../utils/DeviceUtil";
 
 const Container = styled.View`
   width: 100%;
-  height: ${({ height, isTabletDevice }) => isTabletDevice ? height * 0.16 : (height > 600 ? height * 0.12 : height * 0.2)}px;
-  position: absolute;
-  bottom: 0;
+  height: 100%;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
@@ -22,11 +19,8 @@ const MenuItem = styled.TouchableOpacity`
   padding: 10px;
 `;
 
-const BottomMenu = ({ menus, selectedMenu, setSelectedMenu }) => {
+const BottomMenu = ({ menus = [], selectedMenu = menus[0], setSelectedMenu, isTabletDevice = false }) => {
   const navigation = useNavigation();
-  const { width, height } = useWindowDimensions();
-
-  const isTabletDevice = isTablet(width, height);
 
   const handleMenuPress = (menu) => {
     setSelectedMenu(menu);
@@ -34,7 +28,7 @@ const BottomMenu = ({ menus, selectedMenu, setSelectedMenu }) => {
   };
 
   return (
-    <Container height={height} isTabletDevice={isTabletDevice}>
+    <Container isTabletDevice={isTabletDevice}>
       {menus.map((menu, index) => (
         <MenuItem key={index} onPress={() => handleMenuPress(menu)}>
           <TextStyle
