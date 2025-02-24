@@ -109,3 +109,23 @@ const DropdownItem = styled.TouchableOpacity`
 
 
 export default Dropdown;
+
+
+//사용예시
+//const DropdownExample = () => {
+//  const [selectedValue, setSelectedValue] = useState('');
+//
+//  const options = [
+//    { label: '매월 초초', value: 'option1' },
+//    { label: '매월 말일', value: 'option2' },
+//    { label: '한달 동안11', value: 'option3' },
+//  ];
+//
+//  return (
+//      <Dropdown
+//        options={options}
+//        placeholder="선택"
+//        onSelect={(value) => setSelectedValue(value)}
+//      />
+//  );
+//};
