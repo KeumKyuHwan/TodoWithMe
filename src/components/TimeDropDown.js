@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import styled from 'styled-components/native';
 
@@ -14,12 +14,12 @@ const TimeDropDown = () => {
   const [openTime, setOpenTime] = useState(false);
   const [selectedTime, setSelectedTime] = useState(null);
 
-  const times = [];
+  const options = [];
 
-  // 시간과 분 합치기 (10분 단위로)
+  // 시간과 분을 함께 조합하여 항목 생성 (예: 10:00, 10:10, 10:20)
   for (let hour = 0; hour < 24; hour++) {
     for (let minute = 0; minute < 60; minute += 10) {
-      times.push({
+      options.push({
         label: `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`,
         value: `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`,
       });
@@ -32,12 +32,13 @@ const TimeDropDown = () => {
         <DropDownPicker
           open={openTime}
           value={selectedTime}
-          items={times}
+          items={options}
           setOpen={setOpenTime}
           setValue={setSelectedTime}
-          placeholder="시간 선택"
+          placeholder="시간/분 선택"
         />
       </TimeWrapper>
+
     </View>
   );
 };
