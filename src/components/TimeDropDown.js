@@ -5,61 +5,37 @@ import styled from 'styled-components/native';
 
 const TimeWrapper = styled(View)`
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 10px;
 `;
 
-const TimeText = styled(Text)`
-  font-size: 16px;
-  font-weight: bold;
-  margin-right: 10px;
-`;
-
 const TimeDropDown = () => {
   const [openTime, setOpenTime] = useState(false);
-  const [openMinute, setOpenMinute] = useState(false);
   const [selectedTime, setSelectedTime] = useState(null);
-  const [selectedMinute, setSelectedMinute] = useState(null);
 
-  const hours = [];
-  const minutes = [];
+  const times = [];
 
-  // 시간 항목 생성
+  // 시간과 분 합치기 (10분 단위로)
   for (let hour = 0; hour < 24; hour++) {
-    hours.push({ label: `${String(hour).padStart(2, '0')}`, value: hour });
-  }
-
-  // 분 항목 생성
-  for (let minute = 0; minute < 60; minute += 10) {
-    minutes.push({ label: `${String(minute).padStart(2, '0')}`, value: minute });
+    for (let minute = 0; minute < 60; minute += 10) {
+      times.push({
+        label: `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`,
+        value: `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`,
+      });
+    }
   }
 
   return (
     <View style={{ padding: 20 }}>
       <TimeWrapper>
-        <TimeText>시간</TimeText>
         <DropDownPicker
           open={openTime}
           value={selectedTime}
-          items={hours}
+          items={times}
           setOpen={setOpenTime}
           setValue={setSelectedTime}
           placeholder="시간 선택"
-          containerStyle={{ width: '45%' }}
-        />
-      </TimeWrapper>
-
-      <TimeWrapper>
-        <TimeText>분</TimeText>
-        <DropDownPicker
-          open={openMinute}
-          value={selectedMinute}
-          items={minutes}
-          setOpen={setOpenMinute}
-          setValue={setSelectedMinute}
-          placeholder="분 선택"
-          containerStyle={{ width: '45%' }}
         />
       </TimeWrapper>
     </View>
