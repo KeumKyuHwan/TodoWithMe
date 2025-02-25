@@ -9,7 +9,7 @@ const Container = styled.View`
   align-items: center;
 `;
 
-const MenuItem = styled.TouchableOpacity`
+const MenuItem = styled.Pressable`
   padding: 20px;
 `;
 
@@ -41,7 +41,7 @@ const DiaryMenu = ({ menus = [], selectedMenu = menus[0], setSelectedMenu, isTab
          onPress={() => handleMenuPress(menu)}>
             <Icon
             name={menu.name}
-            size={isTabletDevice ? remToPx(getSize("large")) : remToPx(getSize("small"))}
+            size={isTabletDevice ? remToPx(getSize("large")) : remToPx(getSize("medium"))}
             color={selectedMenu.name === menu.name ? "#000000" : menu.color}
             />
         </MenuItem>

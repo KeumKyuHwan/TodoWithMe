@@ -17,7 +17,7 @@ const getSize = (size) => {
 
 
 
-const Container = styled.TouchableOpacity`
+const Container = styled.Pressable`
   width: ${({ size }) => remToPx(getSize(size).width)}px;
   height: ${({ size }) => remToPx(getSize(size).height)}px;
   background-color: ${({ bgColor }) => bgColor || '#000000'};

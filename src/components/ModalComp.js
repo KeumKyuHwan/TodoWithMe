@@ -21,9 +21,9 @@ height: ${(props) => props.height}px;
 
 `;
 
-function ModalComp({modalVisible, setModalVisible}){
+function ModalComp({ modalVisible, setModalVisible, children }) {
 
-    const {width, height} = useWindowDimensions();
+    const { width, height } = useWindowDimensions();
 
     // 가로 모드
     const isLandscape = width > height;
@@ -33,22 +33,22 @@ function ModalComp({modalVisible, setModalVisible}){
     //     height: isLandscape ? height * 0.5 : height * 0.7, 600
     // }, [width, height])
 
-    return(
-        <Modal 
-        visible={modalVisible} 
-        animationType="slide"
-        transparent={true}
-        onRequestClose={() => setModalVisible(false)}
+    return (
+        <Modal
+            visible={modalVisible}
+            animationType="slide"
+            transparent={true}
+            onRequestClose={() => setModalVisible(false)}
         >
             <Overlay onPress={() => setModalVisible(false)}>
                 <ModalContainer
-                width={width*0.9}
-                height={isLandscape ? height * 0.7 : height * 0.5}
+                    width={width * 0.9}
+                    height={isLandscape ? height * 0.7 : height * 0.5}
                 >
-                    <Text>만드는중</Text>
-
+                    {children}
                 </ModalContainer>
             </Overlay>
+
         </Modal>
     )
 }

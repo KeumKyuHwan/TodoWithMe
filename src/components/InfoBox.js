@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { TouchableOpacity, View, Dimensions, useWindowDimensions } from "react-native";
+import { Pressable, View, Dimensions, useWindowDimensions } from "react-native";
 import styled from "styled-components/native";
 import TextStyle from "./TextStyle";
 import ModalComp from "./ModalComp";
@@ -13,7 +13,7 @@ align-items: center;
 justify-content: center;
 `
 
-const Box = styled(TouchableOpacity)`
+const Box = styled(Pressable)`
   display: flex;
   justify-content: center;
   padding-left: 15px;
@@ -37,14 +37,15 @@ function InfoBox({bgColor, onPress}){
         height = {height*0.08} 
         onPress={() => setModalVisible(true)}>
 
-           <TextStyle text="test" weight="bold" size="xsmall" 
+           <TextStyle text="test" weight="bold" size="xsmall"
            adjustsFontSizeToFit={true}
            minimumFontScale={0.5}/>
 
         </Box>
 
         <ModalComp setModalVisible={setModalVisible} modalVisible={modalVisible} />
-        </BoxContainer>    )
+        </BoxContainer>
+        )
 }
 
 export default InfoBox;

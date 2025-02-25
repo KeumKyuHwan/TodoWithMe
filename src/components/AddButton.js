@@ -15,7 +15,7 @@ const getSize = (size) => {
   return sizes[size] || sizes.default ;
 };
 
-const AddButtonContainer = styled.TouchableOpacity`
+const AddButtonContainer = styled.Pressable`
   width: ${({ size }) => remToPx(getSize(size).circle)}px;
   height: ${({ size }) => remToPx(getSize(size).circle)}px;
   background-color: ${({ circleColor }) => circleColor || '#000000'};
