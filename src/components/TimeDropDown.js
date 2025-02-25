@@ -10,6 +10,7 @@ const TimeDropDown = ({ type, setIsVisible, selectedTime, setSelectedTime }) => 
         open={true} // 항상 모달이 열려 있도록 설정
         date={selectedTime ?? new Date()}
         mode={type}
+        locale="ko-KR"
         onConfirm={(selectedDate) => {
           setSelectedTime(selectedDate);
           setIsVisible(false); // 모달 닫기
