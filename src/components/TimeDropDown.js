@@ -1,5 +1,20 @@
 import React, { useState } from 'react';
+import { View, Text } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
+import styled from 'styled-components/native';
+
+const TimeWrapper = styled(View)`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+`;
+
+const TimeText = styled(Text)`
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+`;
 
 const TimeDropDown = () => {
   const [openTime, setOpenTime] = useState(false);
@@ -9,45 +24,46 @@ const TimeDropDown = () => {
 
   const hours = [];
   const minutes = [];
-  
+
+  // 시간 항목 생성
   for (let hour = 0; hour < 24; hour++) {
-    hours.push({ label: `${String(hour).padStart(2, '0')}:00`, value: hour });
+    hours.push({ label: `${String(hour).padStart(2, '0')}`, value: hour });
   }
-  
+
+  // 분 항목 생성
   for (let minute = 0; minute < 60; minute += 10) {
     minutes.push({ label: `${String(minute).padStart(2, '0')}`, value: minute });
   }
 
   return (
-    <div style={{ padding: 20 }}>
-      {/* 시간 드롭다운 */}
-      <DropDownPicker
-        open={openTime}
-        value={selectedTime}
-        items={hours}
-        setOpen={setOpenTime}
-        setValue={setSelectedTime}
-        placeholder="Select hour"
-      />
-      
-      {/* 분 드롭다운 */}
-      <DropDownPicker
-        open={openMinute}
-        value={selectedMinute}
-        items={minutes}
-        setOpen={setOpenMinute}
-        setValue={setSelectedMinute}
-        placeholder="Select minute"
-      />
+    <View style={{ padding: 20 }}>
+      <TimeWrapper>
+        <TimeText>시간</TimeText>
+        <DropDownPicker
+          open={openTime}
+          value={selectedTime}
+          items={hours}
+          setOpen={setOpenTime}
+          setValue={setSelectedTime}
+          placeholder="시간 선택"
+          containerStyle={{ width: '45%' }}
+        />
+      </TimeWrapper>
 
-      {/* 선택된 시간과 분 */}
-      <div>
-        <p>
-          Selected Time: {selectedTime !== null ? `${String(selectedTime).padStart(2, '0')}:${String(selectedMinute).padStart(2, '0')}` : 'None'}
-        </p>
-      </div>
-    </div>
+      <TimeWrapper>
+        <TimeText>분</TimeText>
+        <DropDownPicker
+          open={openMinute}
+          value={selectedMinute}
+          items={minutes}
+          setOpen={setOpenMinute}
+          setValue={setSelectedMinute}
+          placeholder="분 선택"
+          containerStyle={{ width: '45%' }}
+        />
+      </TimeWrapper>
+    </View>
   );
-}
+};
 
 export default TimeDropDown;
