@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { Modal, Pressable, View, Text, Dimensions } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Modal, Pressable, View, Text, useWindowDimensions } from "react-native";
 import styled from "styled-components/native";
-
-const { width, height } = Dimensions.get('window');
 
 const Overlay = styled(Pressable)`
   flex: 1;
@@ -12,19 +10,41 @@ const Overlay = styled(Pressable)`
 `;
 
 const ModalContainer = styled(View)`
+align-items: center;
+justify-content: center;
+
 background-color: #ffffff ;
-width: 93%;
-height: 40%;
 border-radius: 15px;
+width: ${(props) => props.width}px;
+height: ${(props) => props.height}px;
 
 
 `;
 
 function ModalComp({modalVisible, setModalVisible}){
+
+    const {width, height} = useWindowDimensions();
+
+    // 가로 모드
+    const isLandscape = width > height;
+
+    // useEffect(() => {
+    //     width: width*0.9
+    //     height: isLandscape ? height * 0.5 : height * 0.7, 600
+    // }, [width, height])
+
     return(
-        <Modal visible={modalVisible} animationType="slide">
+        <Modal 
+        visible={modalVisible} 
+        animationType="slide"
+        transparent={true}
+        onRequestClose={() => setModalVisible(false)}
+        >
             <Overlay onPress={() => setModalVisible(false)}>
-                <ModalContainer>
+                <ModalContainer
+                width={width*0.9}
+                height={isLandscape ? height * 0.7 : height * 0.5}
+                >
                     <Text>만드는중</Text>
 
                 </ModalContainer>
