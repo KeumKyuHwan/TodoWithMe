@@ -1,4 +1,9 @@
 {
   "name": "TodoWithMe",
-  "displayName": "TodoWithMe"
+  "displayName": "TodoWithMe",
+  "extra": {
+    "eas": {
+      "projectId": "8a3e2f17-64ac-4a66-8eae-f7b8ab480684"
+    }
+  }
 }
