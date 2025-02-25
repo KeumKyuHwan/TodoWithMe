@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { Modal, View, Text, Pressable } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import Modal from 'react-native-modal';  // 모달을 사용하기 위한 import
 import styled from 'styled-components/native';
 
 const TimeWrapper = styled(View)`
@@ -16,41 +15,42 @@ const TimeText = styled(Text)`
   margin-right: 10px;
 `;
 
-const TimeDropDown = () => {
-  const [show, setShow] = useState(false); // 날짜/시간 선택창을 보여줄지 여부
-  const [selectedTime, setSelectedTime] = useState(new Date()); // 선택된 시간
-  const [isModalVisible, setModalVisible] = useState(false); // 모달 창 상태
+const TimeDropDown = ({ type, setIsVisible, selectedTime, setSelectedTime }) => {
+  const [isModalVisible, setModalVisible] = useState(false); // 모달 상태
 
   const onChange = (event, selectedDate) => {
     if (selectedDate) {
-      setSelectedTime(selectedDate); // 선택된 시간을 상태에 저장
+      setSelectedTime(selectedDate); // 선택된 시간 저장
     }
-    setModalVisible(false); // 모달 창 닫기
+    setModalVisible(false); // 모달 닫기
+    setIsVisible && setIsVisible(false); // setIsVisible이 존재할 때만 실행
   };
 
   return (
     <View style={{ padding: 20 }}>
-      <TimeWrapper>
-        <TimeText>근무 시간</TimeText>
-        <Text
-          onPress={() => setModalVisible(true)} // 클릭 시 모달 창 열기
-        >
-          {selectedTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-        </Text>
-      </TimeWrapper>
+      {/* 모달 열기 버튼 */}
+      <Pressable onPress={() => setModalVisible(true)}>
+        <TimeWrapper>
+          <TimeText>{selectedTime ? selectedTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "시간 선택"}</TimeText>
+        </TimeWrapper>
+      </Pressable>
 
       {/* 모달 창 */}
       <Modal
-        isVisible={isModalVisible}
-        onBackdropPress={() => setModalVisible(false)} // 배경 클릭 시 모달 닫기
+        visible={isModalVisible} // 'isVisible'이 아니라 'visible' 사용
+        transparent={true}
+        animationType="slide"
+        onRequestClose={() => setModalVisible(false)}
       >
-        <View style={{ backgroundColor: 'white', padding: 20 }}>
-          <DateTimePicker
-            value={selectedTime}
-            mode="time" // 시간과 분만 선택
-            display="default"
-            onChange={onChange}
-          />
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+          <View style={{ backgroundColor: 'white', padding: 20, borderRadius: 10 }}>
+            <DateTimePicker
+              value={selectedTime ?? new Date()}
+              mode={type}
+              display="default"
+              onChange={onChange}
+            />
+          </View>
         </View>
       </Modal>
     </View>
