@@ -51,12 +51,15 @@ font-weight : ${(props) => {
 
 `
 
-function TextStyle ({text, color, size, weight}) {
+function TextStyle ({text, color, size, weight, adjustsFontSizeToFit, minimumFontScale}) {
     return (
     <Font
     color={color}
     size={size}
     weight={weight}
+    adjustsFontSizeToFit={adjustsFontSizeToFit}
+    minimumFontScale={minimumFontScale}
+    numberOfLines={1}
     >
         {text}
     </Font>
