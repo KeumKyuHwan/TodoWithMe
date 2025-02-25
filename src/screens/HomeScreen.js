@@ -28,6 +28,7 @@ const HomeScreen = () => {
           setIsVisible={setIsVisible}
           selectedTime={selectedTime}
           setSelectedTime={setSelectedTime}
+          title="근무 시간"
         />
       )}
    <Text>{selectedTime ? selectedTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "선택된 시간이 없습니다."}</Text>
@@ -45,7 +46,8 @@ const HomeScreen = () => {
           type="date"
           setIsVisible={setIsVisible2}
           selectedTime={selectedTime2}
-          setSelectedTime={setSelectedTime2} // 모달2의 시간 독립적으로 관리
+          setSelectedTime={setSelectedTime2}
+          title="급여 날짜" // 모달2의 시간 독립적으로 관리
         />
       )}
     </View>
