@@ -45,3 +45,6 @@ const ColorButton = ({handlePress, bgColor, size, children}) => {
 };
 
 export default ColorButton;
+
+// 예시
+// <ColorButton handlePress={handlePress} bgColor={selectedColor} size="xsmall"> 색상 </ColorButton>

@@ -18,7 +18,7 @@ const getSize = (size) => {
 const AddButtonContainer = styled.Pressable`
   width: ${({ size }) => remToPx(getSize(size).circle)}px;
   height: ${({ size }) => remToPx(getSize(size).circle)}px;
-  background-color: ${({ circleColor }) => circleColor || '#000000'};
+  background-color: ${({ color }) => color || '#000000'};
   border-radius: 50%;
   justify-content: center;
   align-items: center;
@@ -31,9 +31,9 @@ const AddButtonText = styled.Text`
   include-font-padding: false;
 `;
 
-const AddButton = ({ onPress, size, circleColor }) => {
+const AddButton = ({ onPress, size, color }) => {
   return (
-    <AddButtonContainer size={size} onPress={onPress} circleColor={circleColor}>
+    <AddButtonContainer size={size} onPress={onPress} color={color}>
       <AddButtonText size={size}>
         +
       </AddButtonText>
@@ -42,3 +42,10 @@ const AddButton = ({ onPress, size, circleColor }) => {
 };
 
 export default AddButton;
+
+
+// 예시
+//      <AddButton
+//      size="small"
+//      color="#f2f2f2"
+//      onPress={() => alert("ㅎㅇ")}/>

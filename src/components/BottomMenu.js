@@ -43,3 +43,11 @@ const BottomMenu = ({ menus = [], selectedMenu = menus[0], setSelectedMenu, isTa
 };
 
 export default BottomMenu;
+
+// 예시
+//        <BottomMenu
+//          menus={menus}
+//          selectedMenu={selectedMenu}
+//          setSelectedMenu={setSelectedMenu}
+//          isTabletDevice={isTabletDevice}
+//        />

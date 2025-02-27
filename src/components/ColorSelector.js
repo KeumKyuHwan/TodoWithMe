@@ -56,3 +56,14 @@ const ColorSelector = ({ selectedColor, setSelectedColor, handleCloseModal, isVi
 };
 
 export default ColorSelector;
+
+// 예시
+// import { calendarBgColor } from '../constants/colorConstants';
+//        <ColorSelector
+//          colorOption={calendarBgColor}
+//          selectedColor={selectedColor}
+//          setSelectedColor={setSelectedColor}
+//          handleCloseModal={handleCloseModal}
+//          setIsVisible={setIsVisible}
+//          isTabletDevice={isTabletDevice}
+//        />

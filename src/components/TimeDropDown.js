@@ -2,12 +2,12 @@ import React from 'react';
 import { View } from 'react-native';
 import DatePicker from 'react-native-date-picker';
 
-const TimeDropDown = ({ type, setIsVisible, selectedTime, setSelectedTime, title }) => {
+const TimeDropDown = ({ type, isVisible, setIsVisible, selectedTime, setSelectedTime, title }) => {
   return (
     <View>
       <DatePicker
         modal
-        open={true} // 항상 모달이 열려 있도록 설정
+        open={isVisible}
         date={selectedTime ?? new Date()}
         mode={type}
         locale="ko-KR"
@@ -25,3 +25,14 @@ const TimeDropDown = ({ type, setIsVisible, selectedTime, setSelectedTime, title
 };
 
 export default TimeDropDown;
+
+// 사용예제
+//
+//  <TimeDropDown
+//      type="time"  (time, date, datetime 중 택 1)
+//      isVisible={isVisible}
+//      setIsVisible={setIsVisible}
+//      selectedTime={selectedTime}
+//      setSelectedTime={setSelectedTime}
+//      title="시간선택"
+//  />

@@ -16,12 +16,12 @@ const MenuItem = styled.Pressable`
 // 아이콘 크기
 const getSize = (size) => {
   const sizes = {
-    xsmall: 0.7 ,
-    small: 0.8,
-    medium: 1.2,
-    large: 2,
-    xlarge: 3,
-    default: 1
+    xsmall: 0.5 ,
+    small: 0.7,
+    medium: 0.9,
+    large: 1.1,
+    xlarge: 1.2,
+    default: 0.8
   };
   return sizes[size]  || sizes.default ;
 };
@@ -41,7 +41,7 @@ const DiaryMenu = ({ menus = [], selectedMenu = menus[0], setSelectedMenu, isTab
          onPress={() => handleMenuPress(menu)}>
             <Icon
             name={menu.name}
-            size={isTabletDevice ? remToPx(getSize("large")) : remToPx(getSize("medium"))}
+            size={isTabletDevice ? remToPx(getSize("medium")) : remToPx(getSize("xsmall"))}
             color={selectedMenu.name === menu.name ? "#000000" : menu.color}
             />
         </MenuItem>
@@ -51,3 +51,18 @@ const DiaryMenu = ({ menus = [], selectedMenu = menus[0], setSelectedMenu, isTab
 };
 
 export default DiaryMenu;
+
+// 예시
+//  const menus = [
+//    { name: "sunny-outline", color: "#828282" },
+//    { name: "cloudy-outline", color: "#828282" },
+//    { name: "rainy-outline", color: "#828282" },
+//    { name: "snow-outline", color: "#828282" }
+//  ];
+
+//      <DiaryMenu
+//        menus={menus}
+//        selectedMenu={selectedMenu}
+//        setSelectedMenu={setSelectedMenu}
+//        isTabletDevice={isTabletDevice}
+//      />
