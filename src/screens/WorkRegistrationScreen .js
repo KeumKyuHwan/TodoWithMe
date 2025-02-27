@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity,ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 import TextStyle from '../components/TextStyle';
 import MultiIconButton from '../components/MultiIconButton';
@@ -40,6 +40,7 @@ const WorkRegistrationScreen = () => {
   };
 
   return (
+
     <Container>
       {/* 상단 바 */}
       <Header>
@@ -48,6 +49,7 @@ const WorkRegistrationScreen = () => {
         <MultiIconButton icon="check" />
       </Header>
       <Line />
+     < ScrollView>
 
       {/* 급여 */}
       <TextStyle text="급여" size="tiny" />
@@ -118,7 +120,9 @@ const WorkRegistrationScreen = () => {
       <SubmitButton>
         <SubmitButtonText>등록</SubmitButtonText>
       </SubmitButton>
+    </ScrollView>
     </Container>
+
   );
 };
 
