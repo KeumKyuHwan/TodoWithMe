@@ -44,8 +44,8 @@ const MainLayout = () => {
       <View style={[styles.content, { marginBottom: contentMarginBottom }]}>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="HomeScreen" component={HomeScreen} initialParams={initialParams}/>
-          <Stack.Screen name="CalendarScreen" component={CalendarScreen} />
-          <Stack.Screen name="WorkplaceScreen" component={WorkplaceScreen} />
+          <Stack.Screen name="CalendarScreen" component={CalendarScreen} initialParams={initialParams}/>
+          <Stack.Screen name="WorkplaceScreen" component={WorkplaceScreen} initialParams={initialParams}/>
           <Stack.Screen name="DiaryScreen" component={DiaryScreen} initialParams={initialParams}/>
         </Stack.Navigator>
       </View>

@@ -8,7 +8,6 @@ import AddButton from "../components/AddButton";
 import DiaryMenu from "../components/DiaryMenu";
 import Icon from "../components/Icon";
 import TimeDropDown from "../components/TimeDropDown";
-import OnOffToggle from "../components/OnOffToggle";
 
 const DiaryScreen = ({ route }) => {
 
@@ -34,6 +33,11 @@ const DiaryScreen = ({ route }) => {
     setIsVisible(false); // 모달 닫기
   };
 
+  const handleIconPress = (icon) => {
+    console.log(`${icon} 아이콘을 클릭했어!`);
+  };
+
+
   return (
     <View>
       <Text>다이어리</Text>
@@ -57,12 +61,16 @@ const DiaryScreen = ({ route }) => {
       }
 
       <InfoBox />
-      <AddButton />
+      <AddButton
+        size="small"
+        color="#f2f2f2"
+        onPress={() => alert("ㅎㅇ")} />
 
       <DiaryMenu
         menus={menus}
         selectedMenu={selectedMenu}
         setSelectedMenu={setSelectedMenu}
+        isTabletDevice={isTabletDevice}
       />
 
       {/* TimeDropDown 컴포넌트 추가 */}
@@ -76,6 +84,7 @@ const DiaryScreen = ({ route }) => {
       {isVisible && (
         <TimeDropDown
           type="time"
+          isVisible={isVisible}
           setIsVisible={setIsVisible}
           selectedTime={selectedTime}
           setSelectedTime={setSelectedTime}
@@ -83,7 +92,6 @@ const DiaryScreen = ({ route }) => {
         />
       )}
 
-      <OnOffToggle/>
     </View>
   );
 };
