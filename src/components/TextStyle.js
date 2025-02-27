@@ -23,7 +23,9 @@ color : ${(props) => {
 font-size: ${(props) => {
     switch (props.size) {
         case 'tiny' : 
-            return `${remToPx(0.3)}px`
+            return `${remToPx(0.3)}px`;
+        case 'xxsmall' :
+            return `${remToPx(0.625)}px`; // 10px
         case 'xsmall':
             return `${remToPx(0.75)}px`; // 12px
         case 'small' : 
