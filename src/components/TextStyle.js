@@ -51,11 +51,15 @@ font-weight : ${(props) => {
         default:
             return 'normal' ;
     }
-}}
+
+}};
+
+  text-align: ${(props) => props.textAlign || "left"};
+
 
 `
 
-function TextStyle ({text, color, size, weight, adjustsFontSizeToFit, minimumFontScale}) {
+function TextStyle ({text, color, size, weight, adjustsFontSizeToFit, minimumFontScale, textAlign}) {
     return (
     <Font
     color={color}
@@ -64,6 +68,7 @@ function TextStyle ({text, color, size, weight, adjustsFontSizeToFit, minimumFon
     adjustsFontSizeToFit={adjustsFontSizeToFit}
     minimumFontScale={minimumFontScale}
     numberOfLines={1}
+    textAlign={textAlign}
     >
         {text}
     </Font>

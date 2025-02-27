@@ -11,8 +11,10 @@ const WorkplaceScreen = ({ route }) => {
   const containerPadding = isTabletDevice ? 40 : 20; // 태블릿은 패딩을 더 크게
 
   return (
-    <View style={[styles.container, { padding: containerPadding }]}>
-      <TextStyle text="근무 현황" color="black" size={textSize} weight="bold" style={{ textAlign: 'center' }} />
+    <View style={[styles.container, { padding: containerPadding}]}>
+
+      <TextStyle text="근무 현황" color="black" size={textSize} weight="bold" textAlign="center" />
+
       <Line color="lightgray" />
     </View>
   );
