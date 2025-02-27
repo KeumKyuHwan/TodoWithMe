@@ -37,9 +37,14 @@ const MultiIconButton = ({ icon, color = '#CFCFCF', size = 'medium', onPress }) 
     }
   };
 
-  // 📌 클릭 시 색상 변경 및 이벤트 전달
-  const handlePress = () => {
-    setIsPressed(!isPressed);
+  // 📌 onPressIn: 아이콘을 눌렀을 때 색상 변경
+  const handlePressIn = () => {
+    setIsPressed(true);
+  };
+
+  // 📌 onPressOut: 아이콘에서 손을 뗄 때 색상 원래대로
+  const handlePressOut = () => {
+    setIsPressed(false);
 
     // 📌 onPress가 전달된 경우 실행
     if (onPress) {
@@ -48,19 +53,20 @@ const MultiIconButton = ({ icon, color = '#CFCFCF', size = 'medium', onPress }) 
   };
 
   return (
-    <TouchableOpacity 
-      onPress={handlePress} 
+    <TouchableOpacity
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
       style={{
-        width: getSize() + 20,  
-        height: getSize() + 20, 
+        width: getSize() + 20,
+        height: getSize() + 20,
         justifyContent: 'center',
         alignItems: 'center',
       }}
     >
-      <Ionicons 
-        name={getIconName()} 
-        size={getSize()} 
-        color={isPressed ? '#000000' : color}
+      <Ionicons
+        name={getIconName()}
+        size={getSize()}
+        color={isPressed ? '#000000' : '#CFCFCF'}
       />
     </TouchableOpacity>
   );
@@ -69,8 +75,8 @@ const MultiIconButton = ({ icon, color = '#CFCFCF', size = 'medium', onPress }) 
 export default MultiIconButton;
 
 // 사용 예시
-//const handleIconPress = (icon) => {
-//  console.log(`${icon} 아이콘을 클릭했어!`);
-//};
-//
-//<MultiIconButton icon="check" size="xsmall" onPress={handleIconPress} />
+// const handleIconPress = (icon) => {
+//   console.log(`${icon} 아이콘을 클릭했어!`);
+// };
+
+// <MultiIconButton icon="check" size="xsmall" onPress={handleIconPress} />
