@@ -28,13 +28,13 @@ const WorkplaceScreen = ({ route }) => {
                 <TextStyle text="근무 현황" color="black" size={textSize} weight="bold" textAlign="center" />
                 <Line color="lightgray" style={styles.line} />
             </View>
-                <AddButton onPress={toggleButtons} size="large" color="#000"/>
+                <AddButton onPress={toggleButtons} size="xsmall" color="#000"/>
                 {showAddButtons && (
                     <View style={styles.additionalButtons}>
                     <TextStyle text="근무지 추가" color="black" size="tiny" />
                     <TextStyle text="급여 추가" color="black" size="tiny" />
                     </View>
-                )}
+                )};
         </View>
     );
 };
