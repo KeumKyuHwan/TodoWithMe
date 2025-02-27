@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     },
     additionalButtons: {
         position: "absolute", // 텍스트 버튼들이 고정된 위치에서 애니메이션되도록 설정
-        bottom: 30, // 기본적으로 + 버튼 위에 위치하도록 설정
+        bottom: isTabletDevice ? 100 : 30, // 기본적으로 + 버튼 위에 위치하도록 설정
         right: 0,
         backgroundColor: '#f0f0f0',
         padding: 15, // 패딩을 늘려서 버튼 크기 확대
