@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0351FB4049BEF0BDE4E4FC7F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		12056F6EA5852C7EF6CC6FF0 /* libPods-TodoWithMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DF5F419DFC5EE938531C9B /* libPods-TodoWithMe.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
-		80AB1F21A9D4D40F7C58A333 /* libPods-TodoWithMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F746568AA31066F7B0FFC73 /* libPods-TodoWithMe.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -19,25 +19,21 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = TodoWithMe/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TodoWithMe/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = TodoWithMe/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		4F746568AA31066F7B0FFC73 /* libPods-TodoWithMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TodoWithMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		72732B71BEF15FBF09EAC2D3 /* Pods-TodoWithMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoWithMe.release.xcconfig"; path = "Target Support Files/Pods-TodoWithMe/Pods-TodoWithMe.release.xcconfig"; sourceTree = "<group>"; };
+		270E6D798FE96B465FF94E58 /* Pods-TodoWithMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoWithMe.debug.xcconfig"; path = "Target Support Files/Pods-TodoWithMe/Pods-TodoWithMe.debug.xcconfig"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = TodoWithMe/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = TodoWithMe/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90DD6E042D6CB54F00FE32F4 /* TodoWithMe.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = TodoWithMe.xcworkspace; sourceTree = "<group>"; };
-		99605A5DC9732401A45578BB /* Pods-TodoWithMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoWithMe.debug.xcconfig"; path = "Target Support Files/Pods-TodoWithMe/Pods-TodoWithMe.debug.xcconfig"; sourceTree = "<group>"; };
+		C9DF5F419DFC5EE938531C9B /* libPods-TodoWithMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TodoWithMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E105234E9EBDF024D2AD4042 /* Pods-TodoWithMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoWithMe.release.xcconfig"; path = "Target Support Files/Pods-TodoWithMe/Pods-TodoWithMe.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		90DD6E072D6CB96900FE32F4 /* Fonts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Fonts; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80AB1F21A9D4D40F7C58A333 /* libPods-TodoWithMe.a in Frameworks */,
+				12056F6EA5852C7EF6CC6FF0 /* libPods-TodoWithMe.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,7 +43,6 @@
 		13B07FAE1A68108700A75B9A /* TodoWithMe */ = {
 			isa = PBXGroup;
 			children = (
-				90DD6E072D6CB96900FE32F4 /* Fonts */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				761780EC2CA45674006654EE /* AppDelegate.swift */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -62,7 +57,7 @@
 			children = (
 				90DD6E042D6CB54F00FE32F4 /* TodoWithMe.xcworkspace */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				4F746568AA31066F7B0FFC73 /* libPods-TodoWithMe.a */,
+				C9DF5F419DFC5EE938531C9B /* libPods-TodoWithMe.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -99,8 +94,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				99605A5DC9732401A45578BB /* Pods-TodoWithMe.debug.xcconfig */,
-				72732B71BEF15FBF09EAC2D3 /* Pods-TodoWithMe.release.xcconfig */,
+				270E6D798FE96B465FF94E58 /* Pods-TodoWithMe.debug.xcconfig */,
+				E105234E9EBDF024D2AD4042 /* Pods-TodoWithMe.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -112,20 +107,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "TodoWithMe" */;
 			buildPhases = (
-				4B4AE93F5C420E4345FD3D3E /* [CP] Check Pods Manifest.lock */,
+				1CFBFD153C60AA9701BD6C07 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				27BB02490B4F6EB5A20FA946 /* [CP] Embed Pods Frameworks */,
-				F6D38950CCF7672B2DC86211 /* [CP] Copy Pods Resources */,
+				E2A71837A6CE80D5AE52AB4E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				90DD6E072D6CB96900FE32F4 /* Fonts */,
 			);
 			name = TodoWithMe;
 			productName = TodoWithMe;
@@ -193,24 +184,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		27BB02490B4F6EB5A20FA946 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TodoWithMe/Pods-TodoWithMe-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TodoWithMe/Pods-TodoWithMe-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TodoWithMe/Pods-TodoWithMe-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4B4AE93F5C420E4345FD3D3E /* [CP] Check Pods Manifest.lock */ = {
+		1CFBFD153C60AA9701BD6C07 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -232,7 +206,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F6D38950CCF7672B2DC86211 /* [CP] Copy Pods Resources */ = {
+		E2A71837A6CE80D5AE52AB4E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -265,7 +239,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99605A5DC9732401A45578BB /* Pods-TodoWithMe.debug.xcconfig */;
+			baseConfigurationReference = 270E6D798FE96B465FF94E58 /* Pods-TodoWithMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -293,7 +267,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72732B71BEF15FBF09EAC2D3 /* Pods-TodoWithMe.release.xcconfig */;
+			baseConfigurationReference = E105234E9EBDF024D2AD4042 /* Pods-TodoWithMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -386,11 +360,14 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
-				USE_HERMES = true;
+				USE_HERMES = false;
 			};
 			name = Debug;
 		};
@@ -455,10 +432,13 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
-				USE_HERMES = true;
+				USE_HERMES = false;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
