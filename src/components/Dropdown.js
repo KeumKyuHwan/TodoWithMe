@@ -1,14 +1,30 @@
-// CustomDropdown.js
 import React, { useState, useRef } from 'react';
-import { FlatList} from 'react-native';
+import { FlatList } from 'react-native';
 import styled from 'styled-components/native';
 import TextStyle from "./TextStyle";
 
-const Dropdown = ({ options, onSelect, placeholder = '선택하세요' }) => {
+const Dropdown = ({ type = 'default', onSelect, placeholder = '선택하세요', width = '100%' }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedLabel, setSelectedLabel] = useState(placeholder);
 
-  // DropdownContainer에 대한 ref 생성
+  // type에 따라 options 설정
+  const options = {
+    default: [
+      { label: '옵션 1', value: 'option1' },
+      { label: '옵션 2', value: 'option2' },
+      { label: '옵션 3', value: 'option3' },
+    ],
+    pay: [
+      { label: '일급', value: 'Daily Pay' },
+      { label: '주급', value: 'Weekly Pay' },
+      { label: '월급', value: 'Monthly Pay' }
+    ],
+
+  };
+
+  // type에 맞는 options 선택
+  const resolvedOptions = options[type] || options.default;
+
   const dropdownRef = useRef(null);
 
   const handleSelect = (item) => {
@@ -18,37 +34,37 @@ const Dropdown = ({ options, onSelect, placeholder = '선택하세요' }) => {
   };
 
   return (
-      <DropdownContainer ref={dropdownRef}>
-        <DropdownHeader onPress={() => setIsVisible(!isVisible)}>
-          <TextStyle color="black" text={selectedLabel || placeholder} size="xsmall"/>
-          <Triangle isVisible={isVisible} />
-        </DropdownHeader>
+    <DropdownContainer ref={dropdownRef} width={width}>
+      <DropdownHeader onPress={() => setIsVisible(!isVisible)}>
+        <TextStyle color="black" text={selectedLabel || placeholder} size="tiny"/>
+        <Triangle isVisible={isVisible} />
+      </DropdownHeader>
 
-        {isVisible && (
-          <DropdownListContainer>
-            <DropdownList
-              data={options}
-              keyExtractor={(item) => item.value}
-              renderItem={({ item }) => (
-                <DropdownItem onPress={() => handleSelect(item)}>
-                  <TextStyle text={item.label} size="xsmall"/>
-                </DropdownItem>
-              )}
-            />
-          </DropdownListContainer>
-        )}
-      </DropdownContainer>
+      {isVisible && (
+        <DropdownListContainer width={width}>
+          <DropdownList
+            data={resolvedOptions}
+            keyExtractor={(item) => item.value}
+            renderItem={({ item }) => (
+              <DropdownItem onPress={() => handleSelect(item)}>
+                <TextStyle text={item.label} size="tiny"/>
+              </DropdownItem>
+            )}
+          />
+        </DropdownListContainer>
+      )}
+    </DropdownContainer>
   );
 };
 
 // styled-components
 const DropdownContainer = styled.View`
-  width: 100%;
-  position: relative; /* 기준점 고정 */
+  width: ${({ width }) => width};
+  position: relative;
 `;
 
 const DropdownHeader = styled.TouchableOpacity`
-    width :100%;
+  width: 100%;
   padding: 3%;
   padding-right: 10%;
   border-bottom-width: 1px;
@@ -60,12 +76,6 @@ const DropdownHeader = styled.TouchableOpacity`
   align-items: center;
 `;
 
-const DropdownHeaderText = styled.Text`
-  font-size: 16px;
-  color: #000;
-`;
-
-/* ▲ 모양을 만드는 삼각형 */
 const Triangle = styled.View`
   width: 0;
   height: 0;
@@ -76,24 +86,21 @@ const Triangle = styled.View`
   border-right-color: transparent;
   border-top-color: #999;
   margin-left: 5%;
-
-  /* 드롭다운 열림/닫힘에 따라 회전 */
   transform: ${({ isVisible }) => (isVisible ? 'rotate(180deg)' : 'rotate(0deg)')};
 `;
 
-/* DropdownListContainer를 position: absolute로 수정 */
 const DropdownListContainer = styled.View`
   position: absolute;
-  top: 100%; /* DropdownHeader 바로 아래에 위치 */
+  top: 100%;
   left: 0;
-  width: 100%;
+  width: ${({ width }) => width};
   z-index: 10;
   background-color: #fff;
   border-width: 1px;
   border-color: #ccc;
   border-top-width: 0;
   border-radius: 5px;
-  max-height: 1000%;
+  max-height: 200px;
 `;
 
 const DropdownList = styled(FlatList)`
@@ -106,26 +113,4 @@ const DropdownItem = styled.TouchableOpacity`
   border-bottom-color: #f0f0f0;
 `;
 
-
-
 export default Dropdown;
-
-
-//사용예시
-//const DropdownExample = () => {
-//  const [selectedValue, setSelectedValue] = useState('');
-//
-//  const options = [
-//    { label: '매월 초초', value: 'option1' },
-//    { label: '매월 말일', value: 'option2' },
-//    { label: '한달 동안11', value: 'option3' },
-//  ];
-//
-//  return (
-//      <Dropdown
-//        options={options}
-//        placeholder="선택"
-//        onSelect={(value) => setSelectedValue(value)}
-//      />
-//  );
-//};
