@@ -11,6 +11,7 @@ const WorkplaceScreen = ({ route }) => {
 
     // 폰과 태블릿에 맞는 스타일 정의
     const textSize = isTabletDevice ? "large" : "xxsmall";  // 태블릿은 'large', 폰은 'xxsmall' 크기
+    const buttonSize = isTabletDevice ? "large" : "xsmall";
     const containerPadding = isTabletDevice ? 40 : 20; // 태블릿은 패딩을 더 크게
 
     const toggleButtons = () => {
@@ -31,7 +32,7 @@ const WorkplaceScreen = ({ route }) => {
 
             {/* + 버튼 및 추가 버튼들 함께 애니메이션 */}
             <View style={styles.buttonContainer}>
-                <AddButton onPress={toggleButtons} size="xsmall" color="#000" style={styles.addButton}/>
+                <AddButton onPress={toggleButtons} size={buttonSize} color="#000" style={styles.addButton}/>
 
                 {/* 애니메이션을 추가한 텍스트 버튼들 */}
                 {showAddButtons && (
@@ -51,12 +52,12 @@ const WorkplaceScreen = ({ route }) => {
                         ]}
                     >
     <View style={styles.textContainer}>
-        <TextStyle text="근무지" color="black" size="xxxsmall" textAlign="center" />
-        <TextStyle text="추가" color="black" size="xxxsmall" textAlign="center" />
+        <TextStyle text="근무지" color="black" size={isTabletDevice ? "medium" : "xxxsmall"} textAlign="center" />
+        <TextStyle text="추가" color="black" size={isTabletDevice ? "medium" : "xxxsmall"} textAlign="center" />
     </View>
     <View style={styles.textContainer}>
-        <TextStyle text="급여" color="black" size="xxxsmall" textAlign="center" />
-        <TextStyle text="추가" color="black" size="xxxsmall" textAlign="center" />
+        <TextStyle text="급여" color="black" size={isTabletDevice ? "medium" : "xxxsmall"} textAlign="center" />
+        <TextStyle text="추가" color="black" size={isTabletDevice ? "medium" : "xxxsmall"} textAlign="center" />
     </View>
                     </Animated.View>
                 )}
