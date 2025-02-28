@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TextInput } from 'react-native';
 import styled from 'styled-components/native';
 
-const MoneyInput = ({ value, onChange, placeholder = '금액 입력', currency = '₩' }) => {
+const MoneyInput = ({ value, onChange, placeholder = '금액 입력', currency = '₩' ,width='100%' }) => {
   const [formattedValue, setFormattedValue] = useState('');
 
   // 📌 천 단위 콤마 추가 함수
@@ -20,7 +20,7 @@ const MoneyInput = ({ value, onChange, placeholder = '금액 입력', currency =
   };
 
   return (
-    <Container>
+    <Container width={width}>
       <Currency>{currency}</Currency>
       <StyledTextInput
         value={formattedValue}
@@ -38,7 +38,9 @@ const Container = styled.View`
   align-items: center;
   border: 1px solid #CFCFCF;
   border-radius: 5px;
-  padding: 10px;
+  padding: 2px;
+  width: ${({ width }) => width};
+  height: auto;
 `;
 
 const Currency = styled.Text`

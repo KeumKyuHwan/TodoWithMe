@@ -7,20 +7,34 @@ const Dropdown = ({ type = 'default', onSelect, placeholder = '선택하세요',
   const [isVisible, setIsVisible] = useState(false);
   const [selectedLabel, setSelectedLabel] = useState(placeholder);
 
-  // type에 따라 options 설정
-  const options = {
-    default: [
-      { label: '옵션 1', value: 'option1' },
-      { label: '옵션 2', value: 'option2' },
-      { label: '옵션 3', value: 'option3' },
-    ],
-    pay: [
-      { label: '일급', value: 'Daily Pay' },
-      { label: '주급', value: 'Weekly Pay' },
-      { label: '월급', value: 'Monthly Pay' }
-    ],
+ // type에 따라 options 설정
+const options = {
+  default: [
+    { label: '옵션 1', value: 'option1' },
+    { label: '옵션 2', value: 'option2' },
+    { label: '옵션 3', value: 'option3' },
+  ],
+  pay: [
+    { label: '일급', value: 'Daily Pay' },
+    { label: '주급', value: 'Weekly Pay' },
+    { label: '월급', value: 'Monthly Pay' }
+  ],
+  rest: [
+    { label: '없음', value: '0' },
+    ...Array.from({ length: 12 }, (_, i) => (i + 1) * 10) // 10분 단위로 120분까지
+      .map(minutes => {
+        const hours = Math.floor(minutes / 60);
+        const mins = minutes % 60;
+        const label = hours > 0 
+          ? `${hours}시간 ${mins > 0 ? `${mins}분` : ''}`.trim()
+          : `${mins}분`;
+        return { label, value: `${minutes}` };
+      }),
+  
+  ]
+  
+};
 
-  };
 
   // type에 맞는 options 선택
   const resolvedOptions = options[type] || options.default;
@@ -61,6 +75,7 @@ const Dropdown = ({ type = 'default', onSelect, placeholder = '선택하세요',
 const DropdownContainer = styled.View`
   width: ${({ width }) => width};
   position: relative;
+  padding:10px;
 `;
 
 const DropdownHeader = styled.TouchableOpacity`

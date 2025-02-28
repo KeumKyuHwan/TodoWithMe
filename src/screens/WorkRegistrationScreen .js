@@ -52,15 +52,17 @@ const WorkRegistrationScreen = () => {
      < ScrollView>
 
       {/* 급여 */}
+      <Section>
       <TextStyle text="급여" size="tiny" />
+      <PayContainer>
       <Dropdown
-        type="pay"
-        placeholder="선택"
-        onSelect={(value) => setSelectedValue(value)}
+  type
       />
-      <MoneyInput />
-
+      <MoneyInput width='50%' />
+      </PayContainer>
+      </Section>
       {/* 근무 날짜 */}
+      <Section>
       <TextStyle text="근무 날짜" size="tiny" />
       <TouchableOpacity onPress={() => setIsDatePickerVisible(true)}>
         <DateText>
@@ -79,8 +81,10 @@ const WorkRegistrationScreen = () => {
         onConfirm={handleDateConfirm}
         onCancel={() => setIsDatePickerVisible(false)}
       />
+      </Section>
 
       {/* 근무 시간 */}
+      <Section>
       <TextStyle text="근무 시간" size="tiny" />
       <TimeContainer>
         <TouchableOpacity onPress={() => setIsStartTimePickerVisible(true)}>
@@ -109,17 +113,30 @@ const WorkRegistrationScreen = () => {
         onConfirm={handleEndTimeConfirm}
         onCancel={() => setIsEndTimePickerVisible(false)}
       />
+      </Section>
 
-      <Line />
+      {/* 휴게시간 */}
+      <Section>
+        <TextStyle text="휴게시간" size="tiny"/>
+        <Dropdown 
+        type="rest"
+        placeholder="휴게시간 선택"
+        onSelect={(value) => console.log(value)} />
+      </Section>
+    
 
       {/* 메모 */}
+      <Section>
       <TextStyle text="메모" size="tiny" />
-      <Box />
+      <Box isInput="true"/>
+      </Section>
 
       {/* 등록 버튼 */}
+      <Section>
       <SubmitButton>
         <SubmitButtonText>등록</SubmitButtonText>
       </SubmitButton>
+      </Section>
     </ScrollView>
     </Container>
 
@@ -133,12 +150,22 @@ const Container = styled.View`
   background-color: #fff;
 `;
 
+const Section = styled.View`
+  margin: 20px 0;
+`;
+
 const Header = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 `;
+
+const PayContainer = styled.View`
+ flex-direction: row;
+ justify-content: space-between;
+
+`
 
 const DateText = styled.Text`
   font-size: 16px;
