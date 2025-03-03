@@ -29,7 +29,7 @@ font-size: ${(props) => {
         case 'xxsmall' :
             return `${remToPx(0.625)}px`; // 10px
         case 'xsmall':
-            return `${remToPx(0.75)}px`; // 12px
+            return `${remToPx(0.7)}px`; // 12px
         case 'small' : 
             return `${remToPx(1)}px`; // 16px
         case 'medium' : 
